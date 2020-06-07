@@ -1,0 +1,40 @@
+ if (isSignedIn) {
+        return (
+            <nav style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <p /*onClick={() => onRouteChange('signout')}*/ className="f5 link dim link underline pa3 pointer">
+                    sign out
+            </p>
+            </nav>
+        );
+    }
+    else {
+        return (
+
+            <nav style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <p /*onClick={() => onRouteChange('signin')}*/ className="f5 link dim link underline pa3 pointer">
+                    sign in</p>
+                <p /*onClick={() => onRouteChange('register')}*/ className="f5 link dim link underline pa3 pointer">
+                    Register
+                 </p>
+            </nav>
+        );
+
+    }
+<nav style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <p className="f5 link dim link underline pa3 pointer tr">Sign in</p>
+        </nav>
+
+    https://icons8.com
+
+    <div className="flex flex-wrap pv1">
+                <Tilt scale={0.01} transitionSpeed={25000} className="w-25  ">
+                    <div className="tilt-scale outline ma2 pa2 pointer bg-white " >
+                        <div className="w-25">
+                            <p className="tc f3">Attendance</p>
+                            <label className="f4">Date:</label><br/>
+                            <input className="pa2 mb2" type="Date" /><br/>
+                            <button className="pa2">Submit</button>
+                        </div>
+                    </div>
+                </Tilt>
+            </div>

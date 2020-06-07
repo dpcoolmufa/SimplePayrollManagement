@@ -1,0 +1,56 @@
+getKeys=()=>{
+        return Object.keys(this.props.tdata[0])
+    }
+    getHeader=()=>{
+        var keys=this.getKeys
+        return keys.map((key,index)=>{return <th key={key} className=" bb bt br pa2 b--black-50">{key.toUpperCase()}</th>})
+    }
+
+    <Table bordered hover variant="dark" cellPadding="10px" cellSpacing="0px" className="ba w-75 bg-black-50 white-50 b--black-50 ma3  center">
+                    <thead className="" >
+                        <tr className=" hover-bg-black hover-white pointer ">
+
+<tr className="hover-bg-black hover-white  pointer hover-b-blue">
+                <td className=" bb bt br pa2 b--black-50">{id}</td>
+                <td className=" bb bt br pa2 b--black-50">{daysworked}</td>
+                <td className=" bb bt br pa2 b--black-50">{c_date.substring(0, 10)}</td>
+                <td className=" bb bt br pa2 b--black-50">{c_salary}</td>
+            </tr>
+
+
+
+
+        )
+
+
+
+        getHeader = () => {
+        var keys = this.getKeys()
+        return keys.map((key, index) => { return <th key={key} className=" bb bt br pa2 b--black-50">{key.toUpperCase()}</th> })
+    }
+    getRowsData = () => {
+        var items = this.props.tdata
+        var keys = this.getKeys()
+        return items.map((row, index) => {
+            return (<tr key={index} className="hover-bg-black hover-white  pointer hover-b-blue">
+                <RenderRow key={index} data={row} keys={keys} />
+            </tr>)
+        })
+    }
+
+    <Table bordered hover variant="dark" cellPadding="10px" cellSpacing="0px" className="ba w-75 bg-black-50 white-50 b--black-50 ma3  center">
+                    <thead className="" >
+                    <tr className=" hover-bg-black hover-white pointer ">
+                        {this.getHeader()}
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {this.getRowsData}
+                    </tbody>
+                </Table>
+            
+            const RenderRow=(props)=>{
+    return props.keys.map((key,index)=>{
+        return <td key={props.data[key]} className=" bb bt br pa2 b--black-50">{props.data[key]}</td>
+    })
+}
