@@ -1,0 +1,57 @@
+const {Id,Name,DOB,password}=req.body; 
+    console.log(Id+Name+password+DOB)
+    const Hash=bcrypt.hashSync(password);
+    knex.transaction(trx=>{
+        trx.insert({
+            Id:Id,            
+            Hash:Hash
+        })
+        .into('login')
+        .returning('*')
+        .then(id => {
+            return trx('employee')
+            .insert({
+                Id:id[0],
+                Name:Name,
+                DOB:DOB
+            })
+            .then(response =>{
+                res.json(response)
+            })
+        })
+        .then(trx.commit)
+        .catch(trx.rollback)
+    })
+
+
+
+    ============
+    knex('employee').where("Id",'=',Id)
+        .update({
+            Name:Name,
+            DOB:DOB
+        })
+        .then(()=>{
+            knex.select("*")
+            .from("employee")
+            .where("Id",'=',Id)
+            .then(employee => res.json(employee[0]))
+        })
+        .catch(err => res.status(400).json("update not done") )
+    })
+=============================
+
+    .then(() => {
+                        trx.select('*').from('employee')
+                            .where("Id", "=", empId)
+                            .then(updatedEmp => {
+                                res.json(updatedEmp[0])
+                            })
+                    })
+
+================================
+return trx('employee').where("Id", "=", empId)
+                    .update({
+                        Name: Name,
+                        DOB: DOB
+                    })                        
